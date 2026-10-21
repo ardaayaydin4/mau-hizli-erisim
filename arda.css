@@ -1,0 +1,165 @@
+/* Genel Sıfırlama ve Font Ayarı */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Arka Plan ve Flex Yapısı (İmzanın alta oturması için column eklendi) */
+body {
+    background-color: #4C2939; /* Ekran görüntündeki o şık bordo/kahve tonu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Ana Kart Tasarımı */
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 650px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
+    text-align: center;
+}
+
+/* Header ve Logo Ayarları */
+.header {
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    color: #7C204A;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 15px;
+    color: #666;
+}
+
+/* Linkleri Taşıyan Kutu */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Butonlar arası eşit boşluk */
+    margin-bottom: 30px;
+}
+
+/* Ana Yönlendirme Butonları (Premium Görünüm) */
+.main-btn {
+    background-color: #ffffff;
+    color: #7C204A;
+    text-decoration: none;
+    padding: 16px 20px;
+    border: 2px solid #7C204A;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease; 
+    display: block;
+}
+
+/* Butonun Üzerine Gidildiğinde (Hover) */
+.main-btn:hover {
+    background-color: #7C204A;
+    color: #ffffff;
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 15px rgba(124, 32, 74, 0.3);
+}
+
+/* Sosyal Medya Alanı */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* İki butonun yan yana geldiğinde aralarındaki boşluk */
+    border-top: 1px solid #eee; 
+    padding-top: 25px;
+    flex-wrap: wrap; /* Telefondan girilirse ve sığmazsa butonlar otomatik alt alta geçer */
+}
+
+/* Ortak Sosyal Medya Buton Yapısı */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Instagram Butonu */
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3); 
+}
+
+.instagram-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(220, 39, 67, 0.4);
+    filter: brightness(1.1); 
+}
+
+/* WhatsApp Butonu */
+.whatsapp-btn {
+    background-color: #25D366;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-btn:hover {
+    background-color: #1ebe5a;
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
+}
+
+/* İkon Boyutu ve Rengi (SVG doğrudan beyaz renk alır) */
+.icon {
+    width: 22px;
+    height: 22px;
+}
+
+/* Yazılımcı İmzası */
+.developer-signature {
+    margin-top: 20px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6); /* Arka planda şık ve hafif silik durması için */
+    letter-spacing: 1px;
+}
+
+.developer-signature span {
+    font-weight: bold;
+    color: #ffffff; /* İsim kısmı daha parlak beyaz olacak */
+}
+
+/* Mobil Ekranlar İçin Ekstra İnce Ayar (Responsive) */
+@media (max-width: 480px) {
+    .container {
+        padding: 30px 20px;
+    }
+    
+    .header h1 {
+        font-size: 20px;
+    }
+    
+    .main-btn {
+        font-size: 14px;
+        padding: 14px 16px;
+    }
+}
