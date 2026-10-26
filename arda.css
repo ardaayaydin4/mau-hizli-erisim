@@ -1,165 +1,477 @@
-/* Genel Sıfırlama ve Font Ayarı */
+/* =========================================================
+   Mardin Artuklu Üniversitesi - Hızlı Erişim Menüsü CSS (arda.css)
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Arka Plan ve Flex Yapısı (İmzanın alta oturması için column eklendi) */
 body {
-    background-color: #4C2939; /* Ekran görüntündeki o şık bordo/kahve tonu */
+    background: linear-gradient(135deg, #4C2939 0%, #351a26 50%, #220f17 100%);
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    color: #333;
+    padding: 24px 16px;
+    position: relative;
+    overflow-x: hidden;
+    color: #1e293b;
 }
 
-/* Ana Kart Tasarımı */
-.container {
-    background-color: #ffffff;
+/* Arka Plan Hareketli Işıltı Küreleri (Glowing Orbs) */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+}
+
+.orb-1 {
+    width: 320px;
+    height: 320px;
+    background: #7C204A;
+    top: -80px;
+    left: -80px;
+    animation: floatOrb 12s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    width: 380px;
+    height: 380px;
+    background: #932B5B;
+    bottom: -100px;
+    right: -100px;
+    animation: floatOrb 15s ease-in-out infinite alternate-reverse;
+}
+
+.orb-3 {
+    width: 240px;
+    height: 240px;
+    background: #d97706;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulseOrb 8s ease-in-out infinite;
+    opacity: 0.15;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 50px) scale(1.15); }
+}
+
+@keyframes pulseOrb {
+    0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.12; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.22; }
+}
+
+/* Ana Kart Yapısı (Glassmorphism & Shadow) */
+.main-card {
+    position: relative;
+    z-index: 10;
     width: 100%;
-    max-width: 650px;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2); 
-    text-align: center;
+    max-width: 620px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 40px 32px 32px 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Header ve Logo Ayarları */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Header & Logo */
 .header {
-    margin-bottom: 30px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    padding: 12px;
+    background: #fdf2f6;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(124, 32, 74, 0.08);
+    border: 1px solid rgba(124, 32, 74, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.logo-wrapper:hover {
+    transform: scale(1.04) rotate(-1deg);
 }
 
 .logo {
-    width: 140px;
+    width: 100px;
     height: auto;
-    margin-bottom: 20px;
+    display: block;
 }
 
 .header h1 {
     color: #7C204A;
     font-size: 24px;
-    margin-bottom: 10px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 6px;
 }
 
 .header p {
-    font-size: 15px;
-    color: #666;
+    color: #64748b;
+    font-size: 14.5px;
+    font-weight: 500;
 }
 
-/* Linkleri Taşıyan Kutu */
+/* Buton Konteyneri */
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Butonlar arası eşit boşluk */
-    margin-bottom: 30px;
+    gap: 14px;
+    margin-bottom: 32px;
 }
 
-/* Ana Yönlendirme Butonları (Premium Görünüm) */
+/* Ana Yönlendirme Butonları */
 .main-btn {
-    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
     color: #7C204A;
     text-decoration: none;
     padding: 16px 20px;
-    border: 2px solid #7C204A;
-    border-radius: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    transition: all 0.3s ease; 
-    display: block;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 15.5px;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Butonun Üzerine Gidildiğinde (Hover) */
-.main-btn:hover {
-    background-color: #7C204A;
-    color: #ffffff;
-    transform: translateY(-3px); 
-    box-shadow: 0 8px 15px rgba(124, 32, 74, 0.3);
-}
-
-/* Sosyal Medya Alanı */
-.social-container {
+.btn-content {
     display: flex;
-    justify-content: center;
-    gap: 15px; /* İki butonun yan yana geldiğinde aralarındaki boşluk */
-    border-top: 1px solid #eee; 
-    padding-top: 25px;
-    flex-wrap: wrap; /* Telefondan girilirse ve sığmazsa butonlar otomatik alt alta geçer */
+    align-items: center;
+    gap: 14px;
 }
 
-/* Ortak Sosyal Medya Buton Yapısı */
-.btn {
+.btn-icon {
+    width: 22px;
+    height: 22px;
+    color: #7C204A;
+    transition: transform 0.25s ease;
+}
+
+.arrow-icon {
+    width: 18px;
+    height: 18px;
+    color: #94a3b8;
+    transition: all 0.25s ease;
+}
+
+.main-btn:hover {
+    background: #7C204A;
+    color: #ffffff;
+    border-color: #7C204A;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px -5px rgba(124, 32, 74, 0.35);
+}
+
+.main-btn:hover .btn-icon {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+.main-btn:hover .arrow-icon {
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+/* Yemekhane & Kredi Alt Butonları */
+.sub-btn {
+    display: block;
+    text-decoration: none;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border: 1.5px solid #e2e8f0;
+    background: #ffffff;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sub-btn-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sub-btn-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+}
+
+.sub-btn-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.amber-icon {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.emerald-icon {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.sub-btn-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.sub-desc {
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.amber-btn:hover {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(245, 158, 11, 0.2);
+}
+
+.emerald-btn:hover {
+    border-color: #10b981;
+    background: #ecfdf5;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.2);
+}
+
+.sub-btn:hover .sub-btn-icon {
+    transform: scale(1.08);
+}
+
+/* ÇÖZMER Öne Çıkarılmış Alan */
+.cozmer-wrapper {
+    position: relative;
+    margin-top: 6px;
+}
+
+.cozmer-badge {
+    position: absolute;
+    top: -11px;
+    left: 20px;
+    z-index: 20;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
-    border-radius: 10px;
-    font-size: 15px;
+    gap: 6px;
+    background: linear-gradient(90deg, #7C204A, #b91c1c);
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(124, 32, 74, 0.3);
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #4ade80;
+    border-radius: 50%;
+    animation: pulseGreen 1.5s infinite;
+}
+
+@keyframes pulseGreen {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.cozmer-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #4C2939 0%, #68203c 100%);
+    color: #ffffff;
     text-decoration: none;
-    font-weight: bold;
-    color: white;
-    transition: all 0.3s ease;
+    padding: 18px 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(76, 41, 57, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Instagram Butonu */
-.instagram-btn {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    box-shadow: 0 4px 10px rgba(220, 39, 67, 0.3); 
+.cozmer-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
 }
 
-.instagram-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(220, 39, 67, 0.4);
-    filter: brightness(1.1); 
-}
-
-/* WhatsApp Butonu */
-.whatsapp-btn {
-    background-color: #25D366;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-}
-
-.whatsapp-btn:hover {
-    background-color: #1ebe5a;
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(37, 211, 102, 0.4);
-}
-
-/* İkon Boyutu ve Rengi (SVG doğrudan beyaz renk alır) */
-.icon {
+.cozmer-icon svg {
     width: 22px;
     height: 22px;
 }
 
+.cozmer-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.main-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.sub-title-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.cozmer-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(76, 41, 57, 0.4);
+    background: linear-gradient(135deg, #5c2e43 0%, #7c204a 100%);
+}
+
+.cozmer-btn:hover .cozmer-icon {
+    transform: scale(1.1) rotate(-3deg);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.cozmer-btn:hover .arrow-icon {
+    transform: translateX(4px);
+    color: #ffffff;
+}
+
+/* Sosyal Medya & Footer */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 24px;
+}
+
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #475569;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.social-icon {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(220, 39, 67, 0.35);
+}
+
+.instagram-btn:hover .social-icon {
+    transform: scale(1.1);
+}
+
+.whatsapp-btn:hover {
+    background-color: #25D366;
+    color: #ffffff;
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-btn:hover .social-icon {
+    transform: scale(1.1);
+}
+
 /* Yazılımcı İmzası */
 .developer-signature {
-    margin-top: 20px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.6); /* Arka planda şık ve hafif silik durması için */
-    letter-spacing: 1px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: rgba(100, 116, 139, 0.7);
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .developer-signature span {
-    font-weight: bold;
-    color: #ffffff; /* İsim kısmı daha parlak beyaz olacak */
+    font-weight: 800;
+    color: #7C204A;
 }
 
-/* Mobil Ekranlar İçin Ekstra İnce Ayar (Responsive) */
+/* Mobil Responsive İnce Ayarlar */
 @media (max-width: 480px) {
-    .container {
-        padding: 30px 20px;
+    .main-card {
+        padding: 28px 20px 24px 20px;
     }
-    
+
     .header h1 {
         font-size: 20px;
     }
-    
+
     .main-btn {
-        font-size: 14px;
+        font-size: 14.5px;
         padding: 14px 16px;
+    }
+
+    .cozmer-btn {
+        padding: 16px;
+    }
+
+    .main-title {
+        font-size: 14.5px;
     }
 }
