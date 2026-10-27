@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
-<!-- SEO ve Sosyal Medya Paylaşım (Meta) Etiketleri -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAÜ Hızlı Erişim Menüsü</title>
+
+    <!-- SEO ve Sosyal Medya Paylaşım (Meta) Etiketleri -->
     <meta property="og:title" content="MAÜ Hızlı Erişim Portalı">
     <meta property="og:description" content="Mardin Artuklu Üniversitesi öğrencileri için OBS, LMS, Yemekhane ve tüm kampüs hizmetlerine tek tıkla ulaşım.">
     <meta property="og:image" content="https://artukluhizlierisim.page/abcde.png">
@@ -13,18 +18,15 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-BQVJWNLF40');
     </script>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAÜ Hızlı Erişim Menüsü</title>
+
     <!-- Google Fonts & Tailwind CSS CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="arda.css">
     <link rel="shortcut icon" type="image/x-icon" href="abcde.png">
@@ -40,7 +42,6 @@
         
         <!-- Dark Mode Toggle Butonu -->
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Temayı Değiştir">
-            <!-- Başlangıçta Ay ikonu (Karanlık moda geç) -->
             <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
@@ -135,23 +136,25 @@
                     </div>
                 </a>
             </div>
-<!-- GencizBiz (KYK) Butonu -->
-<div class="my-2">
-    <a href="https://biz.gsb.gov.tr/" target="_blank" class="sub-btn blue-btn">
-        <div class="sub-btn-content">
-            <div class="sub-btn-icon blue-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
+
+            <!-- GencizBiz (KYK) Butonu -->
+            <div class="my-2">
+                <a href="https://biz.gsb.gov.tr/" target="_blank" class="sub-btn blue-btn">
+                    <div class="sub-btn-content">
+                        <div class="sub-btn-icon blue-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                        </div>
+                        <div class="sub-btn-text">
+                            <span class="sub-title">GSB Biz Yurt İzni Alma</span>
+                            <span class="sub-desc">Yurt İzni Alma ve İşlemler</span>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="sub-btn-text">
-                <span class="sub-title">GSB Biz Yurt İzni Alma</span>
-                <span class="sub-desc">Yurt İzni Alma ve İşlemler</span>
-            </div>
-        </div>
-    </a>
-</div>
+            
             <!-- ÇÖZMER Highlighted Section -->
             <div class="cozmer-wrapper">
                 <div class="cozmer-badge">
@@ -176,6 +179,55 @@
                         <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                 </a>
+            </div>
+
+            <!-- Daha Fazlası Butonu -->
+            <button id="more-btn" class="main-btn more-toggle-btn">
+                <div class="btn-content">
+                    <span>Daha Fazlası</span>
+                    <svg id="more-icon" width="18" height="18" class="arrow-icon transition-transform duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </div>
+            </button>
+
+            <!-- Açılır Menü İçeriği -->
+            <div id="more-content" class="more-content">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-3">
+                    <a href="https://www.artuklu.edu.tr/ogrenci-isleri/akademik-takvim" target="_blank" class="sub-btn blue-btn">
+                        <div class="sub-btn-content">
+                            <div class="sub-btn-icon blue-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="sub-btn-text">
+                                <span class="sub-title">Akademik Takvim</span>
+                                <span class="sub-desc">Sınav ve Tatiller</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="https://www.artuklu.edu.tr/ogrenci-isleri" target="_blank" class="sub-btn blue-btn">
+                        <div class="sub-btn-content">
+                            <div class="sub-btn-icon blue-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                                    <polyline points="10 9 9 9 8 9"></polyline>
+                                </svg>
+                            </div>
+                            <div class="sub-btn-text">
+                                <span class="sub-title">Öğrenci İşleri</span>
+                                <span class="sub-desc">Formlar ve Dilekçeler</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
             
         </main>
