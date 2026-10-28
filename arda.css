@@ -253,6 +253,8 @@ body:not(.dark-mode) .blue-btn:hover { background: #eff6ff; }
 .instagram-btn:hover .social-icon { transform: scale(1.1); }
 .whatsapp-btn:hover { background-color: #25D366; color: #ffffff; border-color: transparent; transform: translateY(-2px); }
 .whatsapp-btn:hover .social-icon { transform: scale(1.1); }
+.twitter-btn:hover { background-color: #0f1419; color: #ffffff; border-color: transparent; transform: translateY(-3px); box-shadow: 0 8px 15px rgba(15, 20, 25, 0.25); }
+body.dark-mode .twitter-btn:hover { background-color: #ffffff; color: #0f1419; box-shadow: 0 8px 15px rgba(255, 255, 255, 0.15); }
 
 /* İmza */
 .developer-signature { margin-top: 24px; font-size: 13px; color: var(--text-muted); text-align: center; font-weight: 600; opacity: 0.8; }
